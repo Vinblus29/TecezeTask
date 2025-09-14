@@ -10,7 +10,8 @@ dotenv.config();
 const app = express();
 
 const allowedOrigins = [
-  "https://tecezetask.onrender.com",
+  "https://tecezetask.netlify.app",
+  "http://localhost:5173",
 ];
 
 app.use(cors({
