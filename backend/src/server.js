@@ -8,7 +8,15 @@ import priceRoutes from "./routes/priceRoutes.js";
 dotenv.config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true, // if you use cookies/auth
+}));
+
+const allowedOrigins = [
+  "https://tecezetask.onrender.com",
+];
+
 app.use(express.json({ limit: "1mb" }));
 
 // Mongo
@@ -29,3 +37,6 @@ app.get("/health", (_, res) => res.json({ ok: true }));
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`🚀 API on http://localhost:${PORT}`));
+
+
+
